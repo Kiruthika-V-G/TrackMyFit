@@ -6,8 +6,8 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers";
 import { getWorkouts,deleteWorkout as deleteWorkoutAPI} from "../api";
 import { CircularProgress } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { useNavigate, useSearchParams } from "react-router-dom";
+
+import { useSearchParams } from "react-router-dom";
 import dayjs from "dayjs";
 
 // Styled components
@@ -75,11 +75,11 @@ const SecTitle = styled.div`
 `;
 
 const Workouts = () => {
-  const dispatch = useDispatch();
+  
   const [todaysWorkouts, setTodaysWorkouts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
+  
 
   const selectedDate = searchParams.get("date");
 
@@ -110,7 +110,7 @@ const Workouts = () => {
 
   useEffect(() => {
     fetchWorkouts();
-  }, [selectedDate]);
+  });
 
   const handleDateChange = (e) => {
     const formatted = e.format("YYYY-MM-DD"); 

@@ -140,7 +140,7 @@ Back Squat
     useEffect(() => {
         dashboardData();
         getTodaysWorkout();
-    },[]) // to stay in dasboard page after reload
+    }) // to stay in dasboard page after reload
   return (
     <Container>
         <Wrapper>

@@ -63,10 +63,6 @@ const EditDelete = styled.div`
   gap : 6px;
 `;
 
-const editWorkout = async() => {
-  const token = localStorage.getItem("trackmyfit-app-token");
-}
-
 
 const WorkoutCard = ({ workout, deleteWorkout}) => {
   return (
