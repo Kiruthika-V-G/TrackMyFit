@@ -15,14 +15,6 @@ app.use(cors()); //MW, cors handle req from diff origins or ports hosted in diff
 app.use(express.json({limit : "50mb"})) //MW parses icnoming json req from post method and sets the max size of json payload to 50mb
 app.use(express.urlencoded({extended : true}));  //MW parses inc req with url encoded payloads like form data and extended true allows complex obj and arrays in parsed data which uses qs lib
 
-app.get('/',async(req,res)=>{
-    res.status(200);
-    res.json(
-        {
-            message : "hello, admin from trackmyfit!"
-        }
-    )
-})
 
 app.use("/api/user",UserRoutes); // userroutes alias for routes/user.js routes
 
