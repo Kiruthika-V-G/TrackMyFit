@@ -9,12 +9,19 @@ dotenv.config(); // part of dotenv used to load enviroment var from .env to proc
 
 const app = express();
 
-app.use(cors()); //MW, cors handle req from diff origins or ports hosted in diff domain
+app.use(cors({
+  origin: 'https://trackmyfit.netlify.app',
+  credentials: true,
+}));
+ //MW, cors handle req from diff origins or ports hosted in diff domain
 // it auto. adds http req to allow cross origin req and enables cors for all routes
 
 app.use(express.json({limit : "50mb"})) //MW parses icnoming json req from post method and sets the max size of json payload to 50mb
 app.use(express.urlencoded({extended : true}));  //MW parses inc req with url encoded payloads like form data and extended true allows complex obj and arrays in parsed data which uses qs lib
 
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
 
 app.use("/api/user",UserRoutes); // userroutes alias for routes/user.js routes
 
