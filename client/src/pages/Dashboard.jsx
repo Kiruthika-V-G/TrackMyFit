@@ -144,33 +144,40 @@ Back Squat
   return (
     <Container>
         <Wrapper>
-            <Title>Dashboard</Title>
-            <FlexWrap>
-                {
-                    counts.map((item) => (
-                        <CountsCard item={item} data={data}/>
-                    ))
-                }
-            </FlexWrap>
-            <FlexWrap>
-                <WeeklyStatCard data={data}/>
-                <CategoryCard data={data}/>
-                <AddWorkout workout={workout} setWorkout={setWorkout} addNewWorkout={addNewWorkout} buttonLoading={buttonLoading}/>
-            </FlexWrap>
-
-            <Section>
+            {loading ? (
+            <Title>Loading...</Title>
+                ) : (
+                <>
+                <FlexWrap>
+                {counts.map((item) => (
+                    <CountsCard key={item.label} item={item} data={data} />
+                ))}
+                </FlexWrap>
+                <FlexWrap>
+                <WeeklyStatCard data={data} />
+                <CategoryCard data={data} />
+                <AddWorkout
+                    workout={workout}
+                    setWorkout={setWorkout}
+                    addNewWorkout={addNewWorkout}
+                    buttonLoading={buttonLoading}
+                />
+                </FlexWrap>
+                <Section>
                 <Title>Today's Workout</Title>
                 <CardWrapper>
-                    {
-                        todaysWorkouts.map((workout) => (
-                            <WorkoutCard key={workout._id}
-                            workout={workout} 
-                            deleteWorkout={deleteWorkout} 
-                             />
-                        ))
-                    }
+                    {todaysWorkouts.map((workout) => (
+                    <WorkoutCard
+                        key={workout._id}
+                        workout={workout}
+                        deleteWorkout={deleteWorkout}
+                    />
+                    ))}
                 </CardWrapper>
             </Section>
+        </>
+        )}
+
         </Wrapper>
     </Container>
   )
