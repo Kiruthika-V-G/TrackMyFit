@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL : "https://trackmyfit-backend.onrender.com/api",
+    baseURL : process.env.REACT_APP_API_URL,
 })
 
 export const UserSignUp = async(data) => API.post("/user/signup",data);
