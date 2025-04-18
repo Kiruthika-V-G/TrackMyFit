@@ -32,4 +32,4 @@ Try FITFOREVER now!
 
 | Login Page | Dashboard | Workout |
 | --- | --- | --- |
-| ![Login Screenshot](screenshots/login.png) | ![Dashboard Screenshot](screenshots/dashboard.png) | ![Add Workout Screenshot](screenshots/add-workout.png) |
+| ![Login Screenshot](screenshots/login.png) | ![Dashboard Screenshot](screenshots/dashboard.png) | ![Add Workout Screenshot](screenshots/add-workouts.png) |
