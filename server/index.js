@@ -9,8 +9,9 @@ dotenv.config(); // part of dotenv used to load enviroment var from .env to proc
 
 const app = express();
 
+
 app.use(cors({
-  origin: 'https://trackmyfit.netlify.app',
+  origin: 'http://localhost:3000', // or your frontend origin
   credentials: true,
 }));
  //MW, cors handle req from diff origins or ports hosted in diff domain
@@ -39,15 +40,17 @@ app.use((err,req,res,next) => {
 
 const connectDB = async () => {
   try {
-    mongoose.set("strictQuery", true);
+    mongoose.set('strictQuery', true);
     await mongoose.connect(process.env.MONGODB_URI, {
       serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,
+      retryWrites: true,
+      retryReads: true,
     });
-    console.log("Connected to Mongo DB");
+    console.log('Connected to Mongo DB');
   } catch (e) {
-    console.error("MongoDB connection error:", e.message);
-    process.exit(1);
+    console.error('MongoDB connection error:', e.message);
+    setTimeout(connectDB, 5000);
   }
 };
 

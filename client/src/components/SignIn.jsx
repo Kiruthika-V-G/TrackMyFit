@@ -46,26 +46,29 @@ const SignIn = () => {
     return true;
   }
 
-  const handleSignIn = async() => {
+  const handleSignIn = async () => {
     setLoading(true);
     setButtonDisabled(true);
-    if(validation()){
-        await UserSignIn({email,password})
-            .then((res) => {
-                console.log(email,password);
-                dispatch(loginSuccess(res.data));
-                setLoading(false);
-                setButtonDisabled(false);
-            })
-            .catch((e)=> {
-                alert(e.response.data.message);
-                setLoading(false);
-                setButtonDisabled(false);
-            })
-
-            
+    if (validation()) {
+      try {
+        const res = await UserSignIn({ email, password });
+        dispatch(loginSuccess(res.data));
+      } catch (e) {
+        if (e.response && e.response.data && e.response.data.message) {
+          alert(e.response.data.message);
+        } else {
+          alert("An unexpected error occurred.");
+        }
+      } finally {
+        setLoading(false);
+        setButtonDisabled(false);
+      }
+    } else {
+      setLoading(false);
+      setButtonDisabled(false);
     }
-  }
+  };
+  
   return (
     
     <Container>
