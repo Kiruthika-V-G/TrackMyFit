@@ -11,7 +11,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://trackmyfit-backend.onrender.com', 'https://*.netlify.app'], // or your frontend origin
+  origin: ['http://localhost:3000', 'https://trackmyfit-backend.onrender.com', 'https://trackmyfit.netlify.app'], // or your frontend origin
   credentials: true,
 }));
  //MW, cors handle req from diff origins or ports hosted in diff domain
