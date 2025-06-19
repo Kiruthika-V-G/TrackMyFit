@@ -5,6 +5,7 @@ import Authentication from "./pages/Authentication";
 import Navbar from "./components/Navbar";
 import Dashboard  from "./pages/Dashboard" 
 import Workouts from "./pages/Workouts";
+import Contact from "./pages/Contact";
 import { useSelector } from "react-redux";
 
 const DivStyle = styled.div`
@@ -31,7 +32,9 @@ function App() {
                             <Route path="/workouts" exact element={<Workouts/>}></Route>
                             {/*<Route path="/tutorials" exact element={<Tutorials/>}></Route>
                             <Route path="/blogs" exact element={<Blogs/>}></Route>
-                            <Route path="/contact" exact element={<Contact/>}></Route>*/}
+                            */}
+                            <Route path="/contact" exact element={<Contact />} />
+
                         </Routes>
                     </DivStyle>
                     ) 

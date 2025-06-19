@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
   res.send('API is running');
 });
 
+app.get('/api', (req, res) => {
+  res.send('API root working');
+});
+
 app.use("/api/user",UserRoutes); // userroutes alias for routes/user.js routes
 
 //error handler

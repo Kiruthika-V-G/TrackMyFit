@@ -10,10 +10,11 @@ dotenv.config();
 export const UserRegister = async (req, res, next) => {
   try {
     const { email, password, name, img } = req.body;
-
+    console.log("Signup request body:", req.body);
     // Check if the email is in use
     const existingUser = await User.findOne({ email }).exec();
     if (existingUser) {
+
       return next(createError(409, "Email is already in use."));
     }
 
@@ -32,6 +33,7 @@ export const UserRegister = async (req, res, next) => {
     });
     return res.status(200).json({ token, user });
   } catch (error) {
+    console.error("Signup error:", error);
     return next(error);
   }
 };
@@ -39,7 +41,8 @@ export const UserRegister = async (req, res, next) => {
 export const UserLogin = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-
+    console.log("Signin request body:", req.body);
+    
     const user = await User.findOne({ email: email });
     // Check if user exists
     if (!user) {
@@ -58,6 +61,7 @@ export const UserLogin = async (req, res, next) => {
 
     return res.status(200).json({ token, user });
   } catch (error) {
+    console.error("Siginin error : ",error)
     return next(error);
   }
 };
