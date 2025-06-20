@@ -2,7 +2,7 @@ import axios from "axios";
 
 // TEMP: Hardcode baseURL to make sure it's working. After it works, switch back to process.env
 const API = axios.create({
-  baseURL: "http://localhost:8080/api",  // Or process.env.REACT_APP_API_URL when ready
+  baseURL: process.env.REACT_APP_API_URL,  // Or process.env.REACT_APP_API_URL when ready
 });
 
 // 🔍 Add this interceptor for debugging outgoing requests
