@@ -30,6 +30,6 @@ Try FITFOREVER now!
 
 ## 📸 Screenshots
 
-| Login Page | Dashboard | Workout |
+| Login Page | Dashboard | Workout | Contact |
 | --- | --- | --- |
 | ![Login Screenshot](screenshots/login.png) | ![Dashboard Screenshot](screenshots/dashboard.png) | ![Add Workout Screenshot](screenshots/workouts.png) | ![Contact Screenshot](screenshots/contact.png)
